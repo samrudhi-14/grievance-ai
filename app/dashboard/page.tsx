@@ -258,43 +258,63 @@ export default function DashboardPage() {
             </div>
           </Link>
 
-          <div className="flex items-center gap-3">
+         <div className="flex items-center gap-3">
 
-            <Link
-              href="/notifications"
-              aria-label="Notifications"
-              className="relative rounded-xl border border-slate-200 bg-white p-2.5 text-lg transition hover:border-blue-200 hover:bg-blue-50"
-            >
-              🔔
+  <Link
+    href="/notifications"
+    aria-label="Notifications"
+    className="relative rounded-xl border border-slate-200 bg-white p-2.5 text-lg transition hover:border-blue-200 hover:bg-blue-50"
+  >
+    🔔
+    <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-red-500" />
+  </Link>
 
-              <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-red-500" />
-            </Link>
+  {data?.success ? (
+    <div className="hidden items-center gap-3 sm:flex">
 
-                          <div className="hidden items-center gap-3 sm:flex">
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 font-bold text-blue-700">
+        {initials}
+      </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 font-bold text-blue-700">
-                {initials}
-              </div>
+      <div>
+        <p className="text-sm font-bold">
+          {userName}
+        </p>
 
-              <div>
-                <p className="text-sm font-bold">
-                  {userName}
-                </p>
+        <p className="text-xs text-slate-500">
+          Citizen Account
+        </p>
+    
+    </div>
 
-                <p className="text-xs text-slate-500">
-                  Citizen Account
-                </p>
-              </div>
+    <button
+      type="button"
+      onClick={handleLogout}
+      className="ml-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs font-bold text-red-600 transition hover:bg-red-100"
+    >
+      Logout
+    </button>
 
-              <button
-                type="button"
-                onClick={handleLogout}
-                className="ml-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs font-bold text-red-600 transition hover:bg-red-100"
-              >
-                Logout
-              </button>
+  </div>
+) : (
+  <div className="flex items-center gap-2">
 
-            </div>
+    <Link
+      href="/login"
+      className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600"
+    >
+      Login
+    </Link>
+
+    <Link
+      href="/register"
+      className="rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-blue-700"
+    >
+      Register
+    </Link>
+
+  </div>
+)}
 
             </div>
           </div>
@@ -333,8 +353,7 @@ export default function DashboardPage() {
 
               <Link
                 href="/grievance"
-                className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-blue-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-blue-50"
-              >
+className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-blue-50"              >
                 + Report an Issue
               </Link>
 
@@ -369,18 +388,38 @@ export default function DashboardPage() {
 
         {/* ERROR */}
 
-        {!loading && !data?.success && (
-          <div className="mt-6 rounded-2xl border border-red-200 bg-red-50 p-5 text-sm text-red-700">
+       {!loading && !data?.success && (
+  <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-6 text-center">
 
-            <strong>
-              Unable to load dashboard:
-            </strong>{" "}
+    <h3 className="text-lg font-black text-slate-900">
+      Login to access your dashboard
+    </h3>
 
-            {data?.error ||
-              "Unknown error"}
+    <p className="mt-2 text-sm text-slate-600">
+      Please log in to view your grievances, notifications,
+      statistics, and citizen services.
+    </p>
 
-          </div>
-        )}
+    <div className="mt-5 flex justify-center gap-3">
+
+      <Link
+        href="/login"
+        className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-700"
+      >
+        Login
+      </Link>
+
+      <Link
+        href="/register"
+        className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-50"
+      >
+        Create Account
+      </Link>
+
+    </div>
+
+  </div>
+)}
 
         {/* STATISTICS */}
 
