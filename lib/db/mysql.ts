@@ -1,23 +1,33 @@
-import mysql from 'mysql2/promise';
+import mysql from "mysql2/promise";
 
 let pool: mysql.Pool | null = null;
 
 export function getDbPool(): mysql.Pool {
   if (!pool) {
+    const isProduction = process.env.NODE_ENV === "production";
+
     pool = mysql.createPool({
-      host: process.env.DATABASE_HOST || 'localhost',
+      host: process.env.DATABASE_HOST || "localhost",
       port: Number(process.env.DATABASE_PORT || 3306),
-      user: process.env.DATABASE_USER || 'root',
-      password: process.env.DATABASE_PASSWORD || '',
-      database: process.env.DATABASE_NAME || 'grievance_ai',
+      user: process.env.DATABASE_USER || "root",
+      password: process.env.DATABASE_PASSWORD || "",
+      database: process.env.DATABASE_NAME || "grievance_ai",
+
+      ...(isProduction && {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      }),
+
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0,
       enableKeepAlive: true,
       keepAliveInitialDelay: 10000,
-      charset: 'utf8mb4',
+      charset: "utf8mb4",
     });
   }
+
   return pool;
 }
 
@@ -31,7 +41,13 @@ interface MySqlErrorLike {
  */
 export async function query<T = unknown>(
   sql: string,
-  params: (string | number | boolean | null | undefined)[] = []
+  params: (
+    | string
+    | number
+    | boolean
+    | null
+    | undefined
+  )[] = []
 ): Promise<T> {
   try {
     const db = getDbPool();
@@ -39,21 +55,25 @@ export async function query<T = unknown>(
     return rows as T;
   } catch (error: unknown) {
     const err = error as MySqlErrorLike;
-    if (err?.code === 'ECONNREFUSED') {
+
+    if (err?.code === "ECONNREFUSED") {
       throw new Error(
-        'Database connection refused. Please verify that MySQL is started in your XAMPP Control Panel on port 3306.'
+        "Database connection refused. Please verify the database configuration."
       );
     }
-    if (err?.code === 'ER_BAD_DB_ERROR') {
+
+    if (err?.code === "ER_BAD_DB_ERROR") {
       throw new Error(
-        "Database 'grievance_ai' does not exist. Please run database/schema.sql in phpMyAdmin."
+        "Database does not exist. Please verify DATABASE_NAME."
       );
     }
-    if (err?.code === 'ER_NO_SUCH_TABLE') {
+
+    if (err?.code === "ER_NO_SUCH_TABLE") {
       throw new Error(
-        'Required database tables not found. Please run database/schema.sql in phpMyAdmin.'
+        "Required database tables not found. Please verify the database schema."
       );
     }
+
     throw error;
   }
 }
@@ -68,16 +88,17 @@ export async function checkDbConnection(): Promise<{
   try {
     const db = getDbPool();
     const connection = await db.getConnection();
+
     connection.release();
+
     return { connected: true };
   } catch (err: unknown) {
     const error = err as MySqlErrorLike;
+
     return {
       connected: false,
       error:
-        error?.code === 'ECONNREFUSED'
-          ? 'MySQL is not running. Please start MySQL in XAMPP.'
-          : error?.message || 'Database connection error',
+        error?.message || "Database connection error",
     };
   }
 }
