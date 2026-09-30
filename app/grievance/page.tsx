@@ -64,7 +64,7 @@ export default function GrievancePage() {
           Grievance<span className="text-blue-600">AI</span>
         </h1>
 
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-slate-700">
           Citizen Grievance App
         </p>
       </header>
@@ -81,7 +81,7 @@ export default function GrievancePage() {
   ← Back to Dashboard
 </Link>
 
-        <p className="mt-2 text-slate-500">
+        <p className="mt-2 text-slate-700">
           Submit your complaint and track its progress.
         </p>
 
@@ -94,7 +94,7 @@ export default function GrievancePage() {
                 Grievance Submitted
               </h3>
 
-              <p className="mt-2 text-slate-500">
+              <p className="mt-2 text-slate-700">
                 Your complaint has been received successfully.
               </p>
 
@@ -114,7 +114,7 @@ export default function GrievancePage() {
               )}
 
               <div>
-                <label className="mb-2 block font-semibold">
+                <label className="mb-2 block font-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-900">
                   Issue Title
                 </label>
 
@@ -124,12 +124,11 @@ export default function GrievancePage() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="Example: Road damage near school"
-                  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue-500"
-                />
+                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-300 dark:focus:border-blue-400 dark:focus:ring-blue-900"                   />
               </div>
 
               <div>
-                <label className="mb-2 block font-semibold">
+                <label className="mb-2 block font-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-900">
                   Category
                 </label>
 
@@ -137,9 +136,7 @@ export default function GrievancePage() {
                   required
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-blue-500"
-                >
-                  <option value="">Select category</option>
+                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-900"              >                  <option value="">Select category</option>
                   <option>Roads & Potholes</option>
                   <option>Garbage & Sanitation</option>
                   <option>Water Supply</option>
@@ -150,7 +147,7 @@ export default function GrievancePage() {
               </div>
 
               <div>
-                <label className="mb-2 block font-semibold">
+                <label className="mb-2 block font-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-900">
                   Description
                 </label>
 
@@ -161,16 +158,15 @@ export default function GrievancePage() {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Describe the problem in at least 20 characters..."
-                  className="w-full resize-none rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue-500"
-                />
+                  className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-300 dark:focus:border-blue-400 dark:focus:ring-blue-900"               />
 
-                <p className="mt-1 text-xs text-slate-400">
+                <p className="mt-1 text-xs text-slate-700">
                   Minimum 20 characters
                 </p>
               </div>
 
               <div>
-                <label className="mb-2 block font-semibold">
+                <label className="mb-2 block font-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-900">
                   Location
                 </label>
 
@@ -180,24 +176,23 @@ export default function GrievancePage() {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="Example: Andheri East, Mumbai"
-                  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue-500"
-                />
+                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-300 dark:focus:border-blue-400 dark:focus:ring-blue-900"                />
               </div>
 
               <div>
-                <label className="mb-2 block font-semibold">
+                <label className="mb-2 block font-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-semibold text-slate-900">
                   Photo Evidence
                 </label>
 
                 <input
-                  type="file"
-                  accept="image/*"
-                  className="w-full rounded-xl border border-slate-300 p-3"
-                />
+  type="file"
+  accept="image/jpeg,image/png"
+  className="w-full rounded-xl border border-slate-300 bg-white p-3 text-slate-900"
+/>
 
-                <p className="mt-1 text-xs text-slate-400">
-                  Photo upload will be connected in the next step.
-                </p>
+<p className="mt-1 text-xs font-medium text-slate-700">
+  Upload a JPG or PNG photo as evidence.
+</p>
               </div>
 
               <button

@@ -814,7 +814,7 @@ className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-slate-900 shadow
             </div>
 
             <Link
-              href="/grievance"
+              href="/chat"
               className="whitespace-nowrap rounded-xl bg-slate-900 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-slate-800"
             >
               Use AI →
