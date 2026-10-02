@@ -140,7 +140,7 @@ export default function AIChatbot() {
                   className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-5 ${
                     message.role === "user"
                       ? "rounded-br-md bg-blue-900 text-white"
-                      : "rounded-bl-md bg-white text-slate-700 shadow-sm"
+                      : "rounded-bl-md bg-white text-black shadow-sm"
                   }`}
                 >
                   {message.text}
