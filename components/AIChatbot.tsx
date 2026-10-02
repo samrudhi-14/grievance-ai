@@ -86,7 +86,7 @@ export default function AIChatbot() {
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Open GrievanceAI Assistant"
-          className="fixed bottom-20 right-5 z-[100] flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-2xl text-white shadow-xl shadow-blue-200 transition hover:scale-105 hover:bg-blue-700 sm:bottom-6 sm:right-6"
+          className="fixed bottom-20 right-5 z-[100] flex h-14 w-14 items-center justify-center rounded-full bg-blue-900 text-2xl text-white shadow-xl shadow-blue-200 transition hover:scale-105 hover:bg-blue-800 sm:bottom-6 sm:right-6"
         >
           🤖
         </button>
@@ -97,7 +97,7 @@ export default function AIChatbot() {
         <div className="fixed bottom-20 right-4 z-[100] flex h-[520px] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl sm:bottom-6 sm:right-6">
 
           {/* Header */}
-          <div className="flex items-center justify-between bg-blue-600 px-4 py-3 text-white">
+          <div className="flex items-center justify-between bg-blue-900 px-4 py-3 text-white">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
                 🤖
@@ -139,7 +139,7 @@ export default function AIChatbot() {
                 <div
                   className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-5 ${
                     message.role === "user"
-                      ? "rounded-br-md bg-blue-600 text-white"
+                      ? "rounded-br-md bg-blue-900 text-white"
                       : "rounded-bl-md bg-white text-slate-700 shadow-sm"
                   }`}
                 >
@@ -179,7 +179,7 @@ export default function AIChatbot() {
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-blue-700 disabled:opacity-50"
+                className="rounded-xl bg-blue-00 px-4 py-2.5 text-sm font-bold text-white hover:bg-blue-800 disabled:opacity-50"
               >
                 →
               </button>
